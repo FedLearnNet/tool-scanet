@@ -164,8 +164,8 @@ config:
     tabularSchema: null
     type: PATH
 info:
-  name: tool-scanet
-  slug: tool-scanet
+  name: scanet
+  slug: scanet
   type: SELF_LEARNED
   sourceUrl: https://github.com/FedLearnNet/tool-scanet
   shortDescription: Preprocesses single-cell expression data with SCANet and exports

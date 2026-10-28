@@ -1,4 +1,4 @@
-# tool-scanet
+# scanet
 
 Preprocesses single-cell expression data with SCANet and exports cell clusters, embeddings, and QC plots.
 
