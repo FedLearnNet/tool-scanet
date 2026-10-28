@@ -1,0 +1,173 @@
+config:
+  hyperparams:
+  - default: '3'
+    description: Minimum number of cells for gene filtering
+    maxValue: 100.0
+    minValue: 1.0
+    name: min_cell
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: '0.1'
+    description: Threshold for mitochondrial gene filtering
+    maxValue: 1.0
+    minValue: 0.0
+    name: threshold
+    options: []
+    pattern: null
+    type: FLOAT
+  - default: '500'
+    description: Number of top genes to select
+    maxValue: 5000.0
+    minValue: 10.0
+    name: top_n_genes
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: leiden
+    description: Cell annotation method for clustering
+    maxValue: null
+    minValue: null
+    name: cell_annotation
+    options:
+    - leiden
+    pattern: null
+    type: CATEGORICAL
+  - default: '50'
+    description: Number of representative cells per cluster
+    maxValue: 1000.0
+    minValue: 1.0
+    name: num_rep_cells
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: '10'
+    description: Number of principal components
+    maxValue: 100.0
+    minValue: 1.0
+    name: n_pcs
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: '5'
+    description: Number of neighbors for UMAP
+    maxValue: 50.0
+    minValue: 1.0
+    name: n_neighbors
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: UMAP
+    description: Dimensionality reduction method
+    maxValue: null
+    minValue: null
+    name: method
+    options:
+    - PCA
+    - UMAP
+    pattern: null
+    type: CATEGORICAL
+  - default: '500'
+    description: Lower bound for cell filtering
+    maxValue: 10000.0
+    minValue: 0.0
+    name: lowerbound
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: '5000'
+    description: Upper bound for cell filtering (max genes per cell)
+    maxValue: 10000.0
+    minValue: 0.0
+    name: upperbound
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: '10'
+    description: Number of bins for histogram
+    maxValue: 100.0
+    minValue: 1.0
+    name: nbins
+    options: []
+    pattern: null
+    type: INTEGER
+  input:
+  - delimiter: null
+    description: Path to h5ad file (e.g. ./data/test_data.h5ad)
+    hasHeader: null
+    maxValue: null
+    minValue: null
+    name: data
+    required: true
+    shape: null
+    tabularSchema: null
+    type: PATH
+  output:
+  - delimiter: null
+    description: Reduced dimensionality data file
+    hasHeader: null
+    maxValue: null
+    minValue: null
+    name: reduced_data
+    required: false
+    shape: null
+    tabularSchema: null
+    type: PATH
+  - delimiter: null
+    description: Cell annotation visualization
+    hasHeader: null
+    maxValue: null
+    minValue: null
+    name: cell_annotation
+    required: false
+    shape: null
+    tabularSchema: null
+    type: IMAGE
+  - delimiter: null
+    description: Cluster visualization
+    hasHeader: null
+    maxValue: null
+    minValue: null
+    name: cluster
+    required: false
+    shape: null
+    tabularSchema: null
+    type: IMAGE
+  - delimiter: null
+    description: Highly variable genes plot
+    hasHeader: null
+    maxValue: null
+    minValue: null
+    name: highly_variable_genes
+    required: false
+    shape: null
+    tabularSchema: null
+    type: IMAGE
+  - delimiter: null
+    description: Violin plot of QC metrics (n_genes, total_counts, pct_mito)
+    hasHeader: null
+    maxValue: null
+    minValue: null
+    name: violin_plot
+    required: false
+    shape: null
+    tabularSchema: null
+    type: IMAGE
+  - delimiter: null
+    description: Processed data file
+    hasHeader: null
+    maxValue: null
+    minValue: null
+    name: processed_data
+    required: false
+    shape: null
+    tabularSchema: null
+    type: PATH
+info:
+  name: tool-scanet
+  slug: tool-scanet
+  type: SELF_LEARNED
+  sourceUrl: https://github.com/FedLearnNet/tool-scanet
+  shortDescription: Preprocesses single-cell expression data with SCANet and exports
+    cell clusters, embeddings, and QC plots.
+  longDescription: null
